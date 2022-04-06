@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Carregar_Documentos" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1794,827" sap2010:WorkflowViewState.IdRef="Carregar_Documentos_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Carregar_Documentos" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1419,827" sap2010:WorkflowViewState.IdRef="Carregar_Documentos_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
       <x:String>System.Activities</x:String>
@@ -70,7 +70,6 @@
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Carregar_Documentos" sap:VirtualizedContainerService.HintSize="242,461" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -143,7 +142,9 @@
                     </Assign>
                     <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" BodyFormat="application/xml" DisplayName="refundToSetPDFs = 1" EnableSSLVerification="True" EndPoint="[&quot;http://aviation.abreu.pt/BSPImportExportSvc/api/bspfile/refundToSetPDFs/&quot;+numdoc+&quot;/1&quot;]" sap:VirtualizedContainerService.HintSize="847,22" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" StatusCode="[statuscode]" TimeoutMS="30000">
                       <ui:HttpClient.Attachments>
-                        <InArgument x:TypeArguments="x:String" x:Key="file">[item.ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="file">
+                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="item.ToString" />
+                        </InArgument>
                       </ui:HttpClient.Attachments>
                       <ui:HttpClient.Cookies>
                         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
@@ -304,7 +305,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="ADMA's" sap:VirtualizedContainerService.HintSize="1388,1290" sap2010:WorkflowViewState.IdRef="Sequence_18">
+    <Sequence DisplayName="ADMA's" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="folderbool" />
       </Sequence.Variables>
